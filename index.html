@@ -16,7 +16,7 @@
                 extend: {
                     colors: {
                         'primary-dark': '#121212', /* Deep Charcoal/Near Black */
-                        'accent-blue': '#007bff', /* Electric Blue */
+                        'accent-cyan': '#00FFFF', /* Vibrant Cyan */
                         'text-light': '#E0E0E0',
                         'card-dark': '#1E1E1E',
                     },
@@ -26,33 +26,47 @@
                 }
             }
         }
+
+        /* Keyframes for Subtle Background Movement */
+        @keyframes subtle-move {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+
         /* Base styling for the cinematic dark background */
         body {
             background-color: #121212;
             color: #E0E0E0;
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
+            
+            /* Moving Background Style */
+            background-image: radial-gradient(circle at 10% 20%, #1a1a1a 0%, #121212 90%);
+            background-size: 400% 400%;
+            animation: subtle-move 40s ease infinite;
         }
+
         /* Custom scrollbar styling for a cleaner look */
         ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-thumb { background: #007bff55; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb { background: #00FFFF55; /* Cyan */ border-radius: 10px; }
         ::-webkit-scrollbar-track { background: #1E1E1E; }
 
         /* Animation for the accent glow on hover */
         .accent-hover:hover {
-            box-shadow: 0 0 10px rgba(0, 123, 255, 0.7);
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.7); /* Cyan glow */
             transition: box-shadow 0.3s ease-in-out, transform 0.2s ease;
             transform: translateY(-2px);
         }
 
-        /* Specific styles for the video player modal */
+        /* Specific styles for the video player modal (same as before) */
         #video-modal-container {
             z-index: 1000;
             background-color: rgba(0, 0, 0, 0.95);
         }
         .video-embed-wrapper {
             /* 16:9 Aspect Ratio for horizontal videos */
-            padding-bottom: 56.25%; /* (9 / 16) * 100 */
+            padding-bottom: 56.25%; 
             position: relative;
             height: 0;
             overflow: hidden;
@@ -68,12 +82,12 @@
 
         .vertical-video-wrapper {
              /* 9:16 Aspect Ratio for vertical videos (Reels) */
-            padding-top: 177.77%; /* (16 / 9) * 100 */
+            padding-top: 177.77%; 
             position: relative;
             height: 0;
             overflow: hidden;
             max-width: 100%;
-            width: 400px; /* Constrain width for a reel-like experience */
+            width: 400px; 
             margin: 0 auto;
         }
         .vertical-video-wrapper iframe {
@@ -94,15 +108,15 @@
 <body class="bg-primary-dark min-h-screen">
 
     <!-- Sticky Navigation Bar -->
-    <header class="sticky top-0 bg-primary-dark/95 backdrop-blur-sm z-50 shadow-lg border-b border-accent-blue/20">
+    <header class="sticky top-0 bg-primary-dark/95 backdrop-blur-sm z-50 shadow-lg border-b border-accent-cyan/20">
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
-            <a href="#home" class="text-xl font-bold tracking-widest text-white hover:text-accent-blue transition duration-300">
+            <a href="#home" class="text-xl font-bold tracking-widest text-white hover:text-accent-cyan transition duration-300">
                 SURIYA JAISANKAR
             </a>
             <div class="hidden md:flex space-x-8">
-                <a href="#home" class="text-text-light hover:text-accent-blue transition duration-300 font-medium">ABOUT ME</a>
-                <a href="#works" class="text-text-light hover:text-accent-blue transition duration-300 font-medium">MY WORKS</a>
-                <a href="#contact" class="text-text-light hover:text-accent-blue transition duration-300 font-medium">CONTACT ME</a>
+                <a href="#home" class="text-text-light hover:text-accent-cyan transition duration-300 font-medium">ABOUT ME</a>
+                <a href="#works" class="text-text-light hover:text-accent-cyan transition duration-300 font-medium">MY WORKS</a>
+                <a href="#contact" class="text-text-light hover:text-accent-cyan transition duration-300 font-medium">CONTACT ME</a>
             </div>
             <!-- Mobile Menu Button (Placeholder for functionality) -->
             <button id="mobile-menu-button" class="md:hidden text-text-light">
@@ -121,13 +135,13 @@
                 <!-- Image Placeholder (Left Side) -->
                 <div class="order-2 md:order-1 flex justify-center">
                     <!-- START: PROFILE PICTURE CODE BLOCK -->
-                    <div class="relative w-full max-w-sm h-96 bg-card-dark rounded-xl overflow-hidden shadow-2xl border-4 border-accent-blue/50">
+                    <div class="relative w-full max-w-sm h-96 bg-card-dark rounded-xl overflow-hidden shadow-2xl border-4 border-accent-cyan/50">
                         <!-- THE CORRECTED RAW URL HAS BEEN INSERTED HERE -->
                         <img 
                             src="https://raw.githubusercontent.com/SuriyaSSJ03/suriya_portfolio/main/suriya_profile.jpg.png" 
                             alt="Suriya Jaisankar Professional Portrait" 
-                            class="w-full h-full object-cover object-center rounded-lg opacity-95 transition-transform duration-500 scale-[1.9]"
-                            onerror="this.onerror=null; this.src='https://placehold.co/400x600/1E1E1E/007bff?text=Error:+Check+Raw+URL';"
+                            class="w-full h-full object-cover object-[50%_40%] rounded-lg opacity-95 transition-transform duration-500 scale-125"
+                            onerror="this.onerror=null; this.src='https://placehold.co/400x600/1E1E1E/00FFFF?text=Error:+Check+Raw+URL';"
                         >
                     </div>
                     <!-- END: PROFILE PICTURE CODE BLOCK -->
@@ -135,20 +149,20 @@
 
                 <!-- Text Content (Right Side) -->
                 <div class="order-1 md:order-2">
-                    <span class="text-lg font-semibold text-accent-blue tracking-wider mb-2 block">Hello, I am</span>
+                    <span class="text-lg font-semibold text-accent-cyan tracking-wider mb-2 block">Hello, I am</span>
                     <h1 class="text-5xl lg:text-7xl font-extrabold text-white mb-4 leading-tight">Suriya Jaisankar.</h1>
                     <h2 class="text-3xl font-light text-text-light mb-6">Video Editor & Content Specialist.</h2>
                     
-                    <p class="text-2xl font-bold text-accent-blue/90 mb-8 tracking-wider">
+                    <p class="text-2xl font-bold text-accent-cyan/90 mb-8 tracking-wider">
                         "Content Designed to Convert."
                     </p>
 
                     <!-- Concise Bio Summary -->
-                    <p class="text-lg text-text-light mb-10 border-l-4 border-accent-blue pl-4 py-2 bg-card-dark/50 rounded-md">
+                    <p class="text-lg text-text-light mb-10 border-l-4 border-accent-cyan pl-4 py-2 bg-card-dark/50 rounded-md">
                         With 3+ years of experience in video editing and content creation, I help brands and creators turn ideas into visually compelling stories that drive engagement and results. I combine creativity, precision, and strategy to craft content that captivates audiences and amplifies brand impact.
                     </p>
 
-                    <a href="#works" class="inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-accent-blue rounded-lg shadow-xl hover:bg-blue-600 accent-hover transition duration-300">
+                    <a href="#works" class="inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-accent-cyan rounded-lg shadow-xl hover:bg-cyan-600 accent-hover transition duration-300">
                         VIEW MY WORK
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 lucide lucide-arrow-right"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                     </a>
@@ -157,28 +171,28 @@
 
             <!-- Core Skillset (Now a separate flow immediately after the intro, with reduced margin) -->
             <div class="w-full mt-16">
-                <h3 class="text-3xl font-bold text-center text-white mb-10 border-b border-accent-blue/50 pb-4">My Core Skillset</h3>
+                <h3 class="text-3xl font-bold text-center text-white mb-10 border-b border-accent-cyan/50 pb-4">My Core Skillset</h3>
                 <div class="grid md:grid-cols-3 gap-8 items-stretch">
                     <!-- Skill Card 1 -->
-                    <div class="p-6 bg-card-dark rounded-xl border border-accent-blue/30 shadow-xl accent-hover h-full">
+                    <div class="p-6 bg-card-dark rounded-xl border border-accent-cyan/30 shadow-xl accent-hover h-full">
                         <div class="flex items-center mb-4">
-                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-accent-blue mr-3 lucide lucide-clapperboard"><path d="M4 6c-1.1 0-2-.9-2-2a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M14 2h4a2 2 0 0 1 2 2v2"/><path d="M20 12V4c0-1.1-.9-2-2-2h-2c-1.1 0-2 .9-2 2v8l-2 2-2-2-2 2-2-2-2 2V4c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V12"/></svg>
+                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-accent-cyan mr-3 lucide lucide-clapperboard"><path d="M4 6c-1.1 0-2-.9-2-2a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M14 2h4a2 2 0 0 1 2 2v2"/><path d="M20 12V4c0-1.1-.9-2-2-2h-2c-1.1 0-2 .9-2 2v8l-2 2-2-2-2 2-2-2-2 2V4c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V12"/></svg>
                             <h4 class="text-xl font-semibold text-white">Advanced Video Editing</h4>
                         </div>
                         <p class="text-text-light text-sm">Crafting seamless, engaging edits that tell a story—utilizing industry-standard software to bring concepts to life with precision and rhythm.</p>
                     </div>
                     <!-- Skill Card 2 -->
-                    <div class="p-6 bg-card-dark rounded-xl border border-accent-blue/30 shadow-xl accent-hover h-full">
+                    <div class="p-6 bg-card-dark rounded-xl border border-accent-cyan/30 shadow-xl accent-hover h-full">
                         <div class="flex items-center mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-accent-blue mr-3 lucide lucide-lightbulb"><path d="M15 14c.2-1 .9-1.8 1.8-2.3v-.1c-.4-.5-.9-1.2-1.4-2l-2-3"/><path d="M12 21c.9 0 1.7-.7 1.7-1.7V17h-3.4v2.3c0 .9.8 1.7 1.7 1.7z"/><path d="M12 17v-1.3c0-.9-.8-1.7-1.7-1.7H10V9.8c0-1.3-.9-2.3-2.3-2.3H5.8"/><path d="M9 13H5.8c-1.3 0-2.3.9-2.3 2.3V17h3.5v2.3c0 .9-.8 1.7-1.7 1.7"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-accent-cyan mr-3 lucide lucide-lightbulb"><path d="M15 14c.2-1 .9-1.8 1.8-2.3v-.1c-.4-.5-.9-1.2-1.4-2l-2-3"/><path d="M12 21c.9 0 1.7-.7 1.7-1.7V17h-3.4v2.3c0 .9.8 1.7 1.7 1.7z"/><path d="M12 17v-1.3c0-.9-.8-1.7-1.7-1.7H10V9.8c0-1.3-.9-2.3-2.3-2.3H5.8"/><path d="M9 13H5.8c-1.3 0-2.3.9-2.3 2.3V17h3.5v2.3c0 .9-.8 1.7-1.7 1.7"/></svg>
                             <h4 class="text-xl font-semibold text-white">Content Strategy & Storytelling</h4>
                         </div>
                         <p class="text-text-light text-sm">Developing concepts that connect with audiences and drive measurable results. I specialize in structuring narratives that are both compelling and conversion-focused.</p>
                     </div>
                     <!-- Skill Card 3 -->
-                    <div class="p-6 bg-card-dark rounded-xl border border-accent-blue/30 shadow-xl accent-hover h-full">
+                    <div class="p-6 bg-card-dark rounded-xl border border-accent-cyan/30 shadow-xl accent-hover h-full">
                         <div class="flex items-center mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-accent-blue mr-3 lucide lucide-layers"><path d="m12.83 2.19-.77.77-6.07 6.07c-.4.4-.7.88-.9 1.4-.2.52-.3 1.08-.3 1.63v.1a7 7 0 0 0 1.9 4.38L12 22l6.27-6.27A7 7 0 0 0 20 11.2v-.1c0-.55-.1-1.1-.3-1.63-.2-.52-.5-1-.9-1.4l-6.07-6.07-.77-.77z"/><path d="M12 22V12"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-accent-cyan mr-3 lucide lucide-layers"><path d="m12.83 2.19-.77.77-6.07 6.07c-.4.4-.7.88-.9 1.4-.2.52-.3 1.08-.3 1.63v.1a7 7 0 0 0 1.9 4.38L12 22l6.27-6.27A7 7 0 0 0 20 11.2v-.1c0-.55-.1-1.1-.3-1.63-.2-.52-.5-1-.9-1.4l-6.07-6.07-.77-.77z"/><path d="M12 22V12"/></svg>
                             <h4 class="text-xl font-semibold text-white">Motion Graphics & Visual Effects</h4>
                         </div>
                         <p class="text-text-light text-sm">Enhancing videos with dynamic graphics, titles, and cinematic polish. Expertise in using tools like After Effects to add depth and professional flair to any project.</p>
@@ -191,12 +205,12 @@
         <!-- 2. MY WORKS Section (PORTFOLIO) -->
         <!-- ########################################## -->
         <section id="works" class="py-20 px-4 sm:px-6 lg:px-8">
-            <h3 class="text-4xl font-extrabold text-white text-center mb-16 border-b border-accent-blue/50 pb-4">MY WORKS</h3>
+            <h3 class="text-4xl font-extrabold text-white text-center mb-16 border-b border-accent-cyan/50 pb-4">MY WORKS</h3>
 
             <!-- Primary Portfolio Filter (Editing vs Content) -->
             <div class="flex justify-center mb-10 space-x-4">
-                <button data-category="editing" class="portfolio-category-btn px-6 py-3 text-lg font-semibold rounded-full transition duration-300 shadow-lg border border-accent-blue"
-                    style="background-color: #007bff; color: white;">
+                <button data-category="editing" class="portfolio-category-btn px-6 py-3 text-lg font-semibold rounded-full transition duration-300 shadow-lg border border-accent-cyan"
+                    style="background-color: #00FFFF; color: black;">
                     VIDEO EDITING
                 </button>
                 <button data-category="content" class="portfolio-category-btn px-6 py-3 text-lg font-semibold rounded-full transition duration-300 border border-gray-600 bg-card-dark hover:bg-gray-700">
@@ -206,7 +220,7 @@
 
             <!-- Secondary Portfolio Filter (Video Editing Sub-sections) -->
             <div id="editing-tabs" class="flex justify-center flex-wrap gap-3 mb-12">
-                <button data-filter="shortform" class="portfolio-filter-btn active-filter px-4 py-2 text-sm font-medium rounded-full transition duration-300 border border-accent-blue/50 text-accent-blue bg-accent-blue/10 hover:bg-accent-blue hover:text-white">Shortform (Reels)</button>
+                <button data-filter="shortform" class="portfolio-filter-btn active-filter px-4 py-2 text-sm font-medium rounded-full transition duration-300 border border-accent-cyan/50 text-accent-cyan bg-accent-cyan/10 hover:bg-accent-cyan hover:text-black">Shortform (Reels)</button>
                 <button data-filter="longform" class="portfolio-filter-btn px-4 py-2 text-sm font-medium rounded-full transition duration-300 border border-gray-600 text-text-light hover:bg-card-dark">Longform Videos</button>
                 <button data-filter="animation" class="portfolio-filter-btn px-4 py-2 text-sm font-medium rounded-full transition duration-300 border border-gray-600 text-text-light hover:bg-card-dark">Animation Videos</button>
                 <button data-filter="advertisement" class="portfolio-filter-btn px-4 py-2 text-sm font-medium rounded-full transition duration-300 border border-gray-600 text-text-light hover:bg-card-dark">Advertisement Videos</button>
@@ -215,10 +229,11 @@
 
             <!-- Secondary Portfolio Filter (Content Creation Sub-section - hidden by default) -->
             <div id="content-tabs" class="hidden flex justify-center gap-3 mb-12">
-                 <h4 class="text-lg text-text-light/80 border-b border-accent-blue/50 pb-2">Projects Directed, Scripted, and Edited</h4>
+                 <h4 class="text-lg text-text-light/80 border-b border-accent-cyan/50 pb-2">Projects Directed, Scripted, and Edited</h4>
             </div>
 
             <!-- Video Grid -->
+            <!-- The items-start class is crucial for removing the blank space below shorter horizontal videos -->
             <div id="portfolio-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
                 <!-- Video thumbnails will be dynamically injected here -->
             </div>
@@ -227,8 +242,8 @@
         <!-- ########################################## -->
         <!-- 3. CONTACT ME Section -->
         <!-- ########################################## -->
-        <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 bg-card-dark/50 rounded-xl my-10 border border-accent-blue/20">
-            <h3 class="text-4xl font-extrabold text-white text-center mb-16 border-b border-accent-blue/50 pb-4">CONTACT ME</h3>
+        <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 bg-card-dark/50 rounded-xl my-10 border border-accent-cyan/20">
+            <h3 class="text-4xl font-extrabold text-white text-center mb-16 border-b border-accent-cyan/50 pb-4">CONTACT ME</h3>
 
             <div class="max-w-3xl mx-auto">
                 <p class="text-center text-lg text-text-light mb-10">
@@ -238,18 +253,18 @@
                 <!-- Contact Form Placeholder -->
                 <form onsubmit="event.preventDefault(); showMessage('Thank thank you for your message! This form is currently a placeholder.');" class="space-y-6 p-8 bg-card-dark rounded-xl shadow-2xl">
                     <div>
-                        <input type="text" placeholder="Your Name" class="w-full p-3 rounded-lg bg-primary-dark border border-gray-700 focus:border-accent-blue focus:ring-1 focus:ring-accent-blue outline-none transition duration-200" required>
+                        <input type="text" placeholder="Your Name" class="w-full p-3 rounded-lg bg-primary-dark border border-gray-700 focus:border-accent-cyan focus:ring-1 focus:ring-accent-cyan outline-none transition duration-200" required>
                     </div>
                     <div>
-                        <input type="email" placeholder="Professional Email" class="w-full p-3 rounded-lg bg-primary-dark border border-gray-700 focus:border-accent-blue focus:ring-1 focus:ring-accent-blue outline-none transition duration-200" required>
+                        <input type="email" placeholder="Professional Email" class="w-full p-3 rounded-lg bg-primary-dark border border-gray-700 focus:border-accent-cyan focus:ring-1 focus:ring-accent-cyan outline-none transition duration-200" required>
                     </div>
                     <div>
-                        <input type="text" placeholder="Subject" class="w-full p-3 rounded-lg bg-primary-dark border border-gray-700 focus:border-accent-blue focus:ring-1 focus:ring-accent-blue outline-none transition duration-200" required>
+                        <input type="text" placeholder="Subject" class="w-full p-3 rounded-lg bg-primary-dark border border-gray-700 focus:border-accent-cyan focus:ring-1 focus:ring-accent-cyan outline-none transition duration-200" required>
                     </div>
                     <div>
-                        <textarea placeholder="Your Message / Project Details" rows="5" class="w-full p-3 rounded-lg bg-primary-dark border border-gray-700 focus:border-accent-blue focus:ring-1 focus:ring-accent-blue outline-none transition duration-200" required></textarea>
+                        <textarea placeholder="Your Message / Project Details" rows="5" class="w-full p-3 rounded-lg bg-primary-dark border border-gray-700 focus:border-accent-cyan focus:ring-1 focus:ring-accent-cyan outline-none transition duration-200" required></textarea>
                     </div>
-                    <button type="submit" class="w-full py-3 text-lg font-semibold text-white bg-accent-blue rounded-lg shadow-xl hover:bg-blue-600 accent-hover transition duration-300">
+                    <button type="submit" class="w-full py-3 text-lg font-semibold text-black bg-accent-cyan rounded-lg shadow-xl hover:bg-cyan-600 hover:text-white accent-hover transition duration-300">
                         SEND MESSAGE
                     </button>
                 </form>
@@ -257,21 +272,21 @@
                 <!-- Direct Links -->
                 <div class="mt-12 flex justify-center space-x-8">
                     <div class="text-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-accent-blue mx-auto mb-2 lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                        <a href="mailto:suriyassj03@gmail.com" class="text-text-light hover:text-accent-blue transition duration-300">suriyassj03@gmail.com</a>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-accent-cyan mx-auto mb-2 lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        <a href="mailto:suriyassj03@gmail.com" class="text-text-light hover:text-accent-cyan transition duration-300">suriyassj03@gmail.com</a>
                     </div>
                     <div class="text-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-accent-blue mx-auto mb-2 lucide lucide-phone"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6.86-6.86A19.79 19.79 0 0 1 2 4.18 2 2 0 0 1 4.18 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-accent-cyan mx-auto mb-2 lucide lucide-phone"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6.86-6.86A19.79 19.79 0 0 1 2 4.18 2 2 0 0 1 4.18 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                         <span class="text-text-light">8838899326</span>
                     </div>
                 </div>
 
                 <!-- Social Media Icons -->
                 <div class="mt-10 pt-6 border-t border-gray-700 flex justify-center space-x-6">
-                    <a href="https://www.linkedin.com/in/suriya-jaisankar-185b2523a/" target="_blank" class="text-text-light hover:text-accent-blue transition duration-300">
+                    <a href="https://www.linkedin.com/in/suriya-jaisankar-185b2523a/" target="_blank" class="text-text-light hover:text-accent-cyan transition duration-300">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="16" x="2" y="8"/><circle cx="4" cy="4" r="2"/></svg>
                     </a>
-                    <a href="https://www.instagram.com/iam_.suriya/" target="_blank" class="text-text-light hover:text-accent-blue transition duration-300">
+                    <a href="https://www.instagram.com/iam_.suriya/" target="_blank" class="text-text-light hover:text-accent-cyan transition duration-300">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12 8a4 4 0 0 1 4 3.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
                     </a>
                 </div>
@@ -280,7 +295,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="text-center py-6 bg-card-dark/70 border-t border-accent-blue/20">
+    <footer class="text-center py-6 bg-card-dark/70 border-t border-accent-cyan/20">
         <p class="text-sm text-gray-500">&copy; 2024 Suriya Jaisankar. All Rights Reserved. | Content Designed to Convert.</p>
     </footer>
 
@@ -290,7 +305,7 @@
     <div id="video-modal-container" class="fixed inset-0 hidden items-center justify-center p-4" onclick="closeModal(event)">
         <div id="video-modal-content" class="relative w-full max-w-4xl rounded-lg shadow-2xl bg-primary-dark p-6 transition-all duration-300 transform scale-95 opacity-0" onclick="event.stopPropagation()">
             <!-- Close Button -->
-            <button onclick="closeModal()" class="absolute -top-4 -right-4 bg-accent-blue text-white rounded-full p-2 hover:bg-blue-600 transition duration-300 z-50">
+            <button onclick="closeModal()" class="absolute -top-4 -right-4 bg-accent-cyan text-white rounded-full p-2 hover:bg-cyan-600 transition duration-300 z-50">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
             </button>
             
@@ -303,7 +318,7 @@
     </div>
     
     <!-- Custom Message Box for form submission -->
-    <div id="message-box" class="fixed bottom-5 right-5 p-4 rounded-lg shadow-xl bg-accent-blue text-white transition-opacity duration-300 opacity-0 z-[1001]"></div>
+    <div id="message-box" class="fixed bottom-5 right-5 p-4 rounded-lg shadow-xl bg-accent-cyan text-black transition-opacity duration-300 opacity-0 z-[1001]"></div>
 
 
     <script>
@@ -363,7 +378,7 @@
                     { 
                         title: "Sales Conversion Edit", 
                         type: "vertical", 
-                        embedId: "ET5T-08Nquo", 
+                        embedId: "ET5T-O8Nquo", 
                         description: "Direct, persuasive short video optimized with clear calls-to-action to drive immediate sales.", 
                         // CONFIRMED WORKING RAW URL
                         thumbnailUrl: "https://raw.githubusercontent.com/SuriyaSSJ03/suriya_portfolio/main/Short-form7.png" 
@@ -506,7 +521,7 @@
                 imgElement.dataset.fallbackTried = true;
             } else {
                 // Final fallback: Show text placeholder if all attempts failed
-                imgElement.src = 'https://placehold.co/800x450/1E1E1E/007bff?text=Thumbnail+Unavailable';
+                imgElement.src = 'https://placehold.co/800x450/1E1E1E/00FFFF?text=Thumbnail+Unavailable';
             }
         }
 
@@ -545,7 +560,7 @@
                             
                             <!-- Play Overlay -->
                             <div class="absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/20 transition duration-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="currentColor" class="text-accent-blue opacity-80 hover:opacity-100 transition duration-300 drop-shadow-lg"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="currentColor" class="text-accent-cyan opacity-80 hover:opacity-100 transition duration-300 drop-shadow-lg"><polygon points="5 3 19 12 5 21 5 3"/></svg>
                             </div>
                         </div>
 
@@ -554,7 +569,7 @@
                             <h5 class="text-xl font-semibold text-white truncate">${video.title}</h5>
                             <p class="text-sm text-gray-400 mt-1">${video.description}</p>
                             ${currentPrimaryCategory === 'content' ? 
-                                '<p class="text-xs text-accent-blue mt-2 font-bold">Role: Concept Developer, Director, Lead Editor</p>' : ''}
+                                '<p class="text-xs text-accent-cyan mt-2 font-bold">Role: Concept Developer, Director, Lead Editor</p>' : ''}
                         </div>
                     </div>
                 `;
@@ -572,14 +587,14 @@
             // Update button styles
             document.querySelectorAll('.portfolio-category-btn').forEach(btn => {
                 if (btn.dataset.category === newCategory) {
-                    btn.style.backgroundColor = '#007bff';
-                    btn.style.color = 'white';
-                    btn.classList.add('border-accent-blue');
+                    btn.style.backgroundColor = '#00FFFF';
+                    btn.style.color = 'black';
+                    btn.classList.add('border-accent-cyan');
                     btn.classList.remove('bg-card-dark', 'border-gray-600', 'hover:bg-gray-700');
                 } else {
                     btn.style.backgroundColor = '';
                     btn.style.color = '';
-                    btn.classList.remove('border-accent-blue');
+                    btn.classList.remove('border-accent-cyan');
                     btn.classList.add('bg-card-dark', 'border-gray-600', 'hover:bg-gray-700');
                 }
             });
@@ -608,11 +623,11 @@
 
             // Update button styles
             document.querySelectorAll('.portfolio-filter-btn').forEach(btn => {
-                btn.classList.remove('active-filter', 'bg-accent-blue', 'text-white');
+                btn.classList.remove('active-filter', 'bg-accent-cyan', 'text-black');
                 btn.classList.add('border-gray-600', 'text-text-light', 'hover:bg-card-dark', 'bg-card-dark/50');
                 
                 if (btn.dataset.filter === newFilter) {
-                    btn.classList.add('active-filter', 'bg-accent-blue', 'text-white', 'hover:bg-accent-blue');
+                    btn.classList.add('active-filter', 'bg-accent-cyan', 'text-black', 'hover:bg-cyan-600', 'hover:text-white');
                     btn.classList.remove('border-gray-600', 'text-text-light', 'bg-card-dark/50');
                 }
             });
