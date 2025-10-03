@@ -308,18 +308,66 @@
 
     <script>
         // Data Structure for Portfolio
-        // **INSTRUCTIONS:** Replace the 'null' values in 'thumbnailUrl' with your public image URLs (from GitHub Raw).
-        // If left as 'null', the code will automatically pull the high-resolution thumbnail from YouTube.
+        // **INSTRUCTIONS:** All thumbnail URLs must use the RAW GitHub format (https://raw.githubusercontent.com/...)
         const VIDEO_DATA = {
             'editing': {
                 'shortform': [
-                    { title: "Personal Branding", type: "vertical", embedId: "CK_Ek3odYOc", description: "High-impact vertical edit designed to establish professional identity and audience connection.", thumbnailUrl: "https://github.com/SuriyaSSJ03/suriya_portfolio/blob/main/Short-form1.png" },
-                    { title: "Educational Retention Edit", type: "vertical", embedId: "jJDx-2axUCU", description: "Strategic short-form content optimized for maximum viewer retention and knowledge transfer.", thumbnailUrl: "https://github.com/SuriyaSSJ03/suriya_portfolio/blob/main/Short-form2.png" },
-                    { title: "Motivational Retention Edit", type: "vertical", embedId: "gR3i-NgzIII", description: "Inspirational reel using sharp cuts and dynamic graphics to boost audience engagement.", thumbnailUrl: "https://github.com/SuriyaSSJ03/suriya_portfolio/blob/main/Short-form3.png" },
-                    { title: "Educational Retention Edit 2", type: "vertical", embedId: "kmYRhfe46EY", description: "Detailed short tutorial crafted for clear learning outcomes and high completion rates.", thumbnailUrl: "https://github.com/SuriyaSSJ03/suriya_portfolio/blob/main/Short-form4.png" },
-                    { title: "Funky Style Reel", type: "vertical", embedId: "KRY79TxOZ2w", description: "Visually distinct and playful editing style to capture attention and stand out on social feeds.", thumbnailUrl: "https://github.com/SuriyaSSJ03/suriya_portfolio/blob/main/Short-form5.png" },
-                    { title: "Business Testimonial Edit", type: "vertical", embedId: "TlmX3JyVmSY", description: "Trust-building content featuring a client testimonial edited for credibility and emotional resonance.", thumbnailUrl: "https://github.com/SuriyaSSJ03/suriya_portfolio/blob/main/Short-form6.png" },
-                    { title: "Sales Conversion Edit", type: "vertical", embedId: "ET5T-08Nquo", description: "Direct, persuasive short video optimized with clear calls-to-action to drive immediate sales.", thumbnailUrl: "https://github.com/SuriyaSSJ03/suriya_portfolio/blob/main/Short-form7.png" }
+                    { 
+                        title: "Personal Branding", 
+                        type: "vertical", 
+                        embedId: "CK_Ek3odYOc", 
+                        description: "High-impact vertical edit designed to establish professional identity and audience connection.", 
+                        // FIXED URL FORMAT: RAW URL from GitHub
+                        thumbnailUrl: "https://raw.githubusercontent.com/SuriyaSSJ03/suriya_portfolio/main/Short-form1.png" 
+                    },
+                    { 
+                        title: "Educational Retention Edit", 
+                        type: "vertical", 
+                        embedId: "jJDx-2axUCU", 
+                        description: "Strategic short-form content optimized for maximum viewer retention and knowledge transfer.", 
+                        // FIXED URL FORMAT: RAW URL from GitHub
+                        thumbnailUrl: "https://raw.githubusercontent.com/SuriyaSSJ03/suriya_portfolio/main/Short-form2.png" 
+                    },
+                    { 
+                        title: "Motivational Retention Edit", 
+                        type: "vertical", 
+                        embedId: "gR3i-NgzIII", 
+                        description: "Inspirational reel using sharp cuts and dynamic graphics to boost audience engagement.", 
+                        // FIXED URL FORMAT: RAW URL from GitHub
+                        thumbnailUrl: "https://raw.githubusercontent.com/SuriyaSSJ03/suriya_portfolio/main/Short-form3.png" 
+                    },
+                    { 
+                        title: "Educational Retention Edit 2", 
+                        type: "vertical", 
+                        embedId: "kmYRhfe46EY", 
+                        description: "Detailed short tutorial crafted for clear learning outcomes and high completion rates.", 
+                        // FIXED URL FORMAT: RAW URL from GitHub
+                        thumbnailUrl: "https://raw.githubusercontent.com/SuriyaSSJ03/suriya_portfolio/main/Short-form4.png" 
+                    },
+                    { 
+                        title: "Funky Style Reel", 
+                        type: "vertical", 
+                        embedId: "KRY79TxOZ2w", 
+                        description: "Visually distinct and playful editing style to capture attention and stand out on social feeds.", 
+                        // FIXED URL FORMAT: RAW URL from GitHub
+                        thumbnailUrl: "https://raw.githubusercontent.com/SuriyaSSJ03/suriya_portfolio/main/Short-form5.png" 
+                    },
+                    { 
+                        title: "Business Testimonial Edit", 
+                        type: "vertical", 
+                        embedId: "TlmX3JyVmSY", 
+                        description: "Trust-building content featuring a client testimonial edited for credibility and emotional resonance.", 
+                        // FIXED URL FORMAT: RAW URL from GitHub
+                        thumbnailUrl: "https://raw.githubusercontent.com/SuriyaSSJ03/suriya_portfolio/main/Short-form6.png" 
+                    },
+                    { 
+                        title: "Sales Conversion Edit", 
+                        type: "vertical", 
+                        embedId: "ET5T-08Nquo", 
+                        description: "Direct, persuasive short video optimized with clear calls-to-action to drive immediate sales.", 
+                        // FIXED URL FORMAT: RAW URL from GitHub
+                        thumbnailUrl: "https://raw.githubusercontent.com/SuriyaSSJ03/suriya_portfolio/main/Short-form7.png" 
+                    }
                 ],
                 'longform': [
                     { title: "Documentary Style Project", type: "horizontal", embedId: "ZKX2G7tV5OM", description: "Comprehensive long-form narrative structure, utilizing interviews, B-roll, and cinematic grading.", thumbnailUrl: null },
