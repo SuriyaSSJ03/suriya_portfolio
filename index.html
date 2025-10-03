@@ -120,13 +120,16 @@
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <!-- Image Placeholder (Left Side) -->
                 <div class="order-2 md:order-1 flex justify-center">
-                    <!-- Placeholder for your professional portrait -->
-                    <div class="relative w-full max-w-sm h-96 bg-card-dark rounded-xl overflow-hidden shadow-2xl border-4 border-accent-blue/50 p-4">
-                        <img src="https://placehold.co/400x600/121212/007bff?text=Your+Professional+Portrait" alt="Suriya Jaisankar Professional Portrait Placeholder" class="w-full h-full object-cover rounded-lg opacity-70">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <span class="text-lg font-semibold text-accent-blue/80 tracking-widest">IMAGE HERE</span>
-                        </div>
+                    <!-- START: PROFILE PICTURE CODE BLOCK -->
+                    <div class="relative w-full max-w-sm h-96 bg-card-dark rounded-xl overflow-hidden shadow-2xl border-4 border-accent-blue/50">
+                        <img 
+                            src="YOUR_PROFILE_PICTURE_RAW_URL_HERE" 
+                            alt="Suriya Jaisankar Professional Portrait" 
+                            class="w-full h-full object-cover rounded-lg opacity-90"
+                            onerror="this.onerror=null; this.src='https://placehold.co/400x600/1E1E1E/007bff?text=Upload+Portrait';"
+                        >
                     </div>
+                    <!-- END: PROFILE PICTURE CODE BLOCK -->
                 </div>
 
                 <!-- Text Content (Right Side) -->
@@ -304,8 +307,8 @@
 
     <script>
         // Data Structure for Portfolio
-        // **IMPORTANT:** Add your public image URL to the 'thumbnailUrl' property below.
-        // If 'thumbnailUrl' is null, it will automatically use the high-resolution YouTube thumbnail.
+        // **INSTRUCTIONS:** Replace the 'null' values in 'thumbnailUrl' with your public image URLs (from GitHub Raw).
+        // If left as 'null', the code will automatically pull the high-resolution thumbnail from YouTube.
         const VIDEO_DATA = {
             'editing': {
                 'shortform': [
