@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suriya Jaisankar | Portfolio</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Lucide Icons for professional UI elements -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        /* Custom Tailwind Configuration */
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-dark': '#121212', /* Deep Charcoal/Near Black */
+                        'accent-blue': '#007bff', /* Electric Blue */
+                        'text-light': '#E0E0E0',
+                        'card-dark': '#1E1E1E',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+        /* Base styling for the cinematic dark background */
+        body {
+            background-color: #121212;
+            color: #E0E0E0;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        /* Custom scrollbar styling for a cleaner look */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-thumb { background: #007bff55; border-radius: 10px; }
+        ::-webkit-scrollbar-track { background: #1E1E1E; }
+
+        /* Animation for the accent glow on hover */
+        .accent-hover:hover {
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.7);
+            transition: box-shadow 0.3s ease-in-out, transform 0.2s ease;
+            transform: translateY(-2px);
+        }
+
+        /* Specific styles for the video player modal */
+        #video-modal-container {
+            z-index: 1000;
+            background-color: rgba(0, 0, 0, 0.95);
+        }
+        .video-embed-wrapper {
+            /* 16:9 Aspect Ratio for horizontal videos */
+            padding-bottom: 56.25%; /* (9 / 16) * 100 */
+            position: relative;
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+        }
+        .video-embed-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .vertical-video-wrapper {
+             /* 9:16 Aspect Ratio for vertical videos (Reels) */
+            padding-top: 177.77%; /* (16 / 9) * 100 */
+            position: relative;
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            width: 400px; /* Constrain width for a reel-like experience */
+            margin: 0 auto;
+        }
+        .vertical-video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        /* Ensure modal content fits screen on mobile */
+        @media (max-width: 768px) {
+            .vertical-video-wrapper {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body class="bg-primary-dark min-h-screen">
+
+    <!-- Sticky Navigation Bar -->
+    <header class="sticky top-0 bg-primary-dark/95 backdrop-blur-sm z-50 shadow-lg border-b border-accent-blue/20">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+            <a href="#home" class="text-xl font-bold tracking-widest text-white hover:text-accent-blue transition duration-300">
+                SURIYA JAISANKAR
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="text-text-light hover:text-accent-blue transition duration-300 font-medium">ABOUT ME</a>
+                <a href="#works" class="text-text-light hover:text-accent-blue transition duration-300 font-medium">MY WORKS</a>
+                <a href="#contact" class="text-text-light hover:text-accent-blue transition duration-300 font-medium">CONTACT ME</a>
+            </div>
+            <!-- Mobile Menu Button (Placeholder for functionality) -->
+            <button id="mobile-menu-button" class="md:hidden text-text-light">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            </button>
+        </nav>
+    </header>
+
+    <main class="max-w-7xl mx-auto">
+        
+        <!-- ########################################## -->
+        <!-- 1. ABOUT ME Section (HOME) -->
+        <!-- ########################################## -->
+        <section id="home" class="py-20 px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Image Placeholder (Left Side) -->
+                <div class="order-2 md:order-1 flex justify-center">
+                    <!-- Placeholder for your professional portrait -->
+                    <div class="relative w-full max-w-sm h-96 bg-card-dark rounded-xl overflow-hidden shadow-2xl border-4 border-accent-blue/50 p-4">
+                        <img src="https://placehold.co/400x600/121212/007bff?text=Your+Professional+Portrait" alt="Suriya Jaisankar Professional Portrait Placeholder" class="w-full h-full object-cover rounded-lg opacity-70">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <span class="text-lg font-semibold text-accent-blue/80 tracking-widest">IMAGE HERE</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Content (Right Side) -->
+                <div class="order-1 md:order-2">
+                    <span class="text-lg font-semibold text-accent-blue tracking-wider mb-2 block">Hello, I am</span>
+                    <h1 class="text-5xl lg:text-7xl font-extrabold text-white mb-4 leading-tight">Suriya Jaisankar.</h1>
+                    <h2 class="text-3xl font-light text-text-light mb-6">Video Editor & Content Specialist.</h2>
+                    
+                    <p class="text-2xl font-bold text-accent-blue/90 mb-8 tracking-wider">
+                        "Content Designed to Convert."
+                    </p>
+
+                    <!-- Concise Bio Summary -->
+                    <p class="text-lg text-text-light mb-10 border-l-4 border-accent-blue pl-4 py-2 bg-card-dark/50 rounded-md">
+                        With 3+ years of experience in video editing and content creation, I help brands and creators turn ideas into visually compelling stories that drive engagement and results. I combine creativity, precision, and strategy to craft content that captivates audiences and amplifies brand impact.
+                    </p>
+
+                    <a href="#works" class="inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-accent-blue rounded-lg shadow-xl hover:bg-blue-600 accent-hover transition duration-300">
+                        VIEW MY WORK
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 lucide lucide-arrow-right"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Core Skillset (Now a separate flow immediately after the intro, with reduced margin) -->
+            <div class="w-full mt-16">
+                <h3 class="text-3xl font-bold text-center text-white mb-10 border-b border-accent-blue/50 pb-4">My Core Skillset</h3>
+                <div class="grid md:grid-cols-3 gap-8 items-stretch">
+                    <!-- Skill Card 1 -->
+                    <div class="p-6 bg-card-dark rounded-xl border border-accent-blue/30 shadow-xl accent-hover h-full">
+                        <div class="flex items-center mb-4">
+                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-accent-blue mr-3 lucide lucide-clapperboard"><path d="M4 6c-1.1 0-2-.9-2-2a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M14 2h4a2 2 0 0 1 2 2v2"/><path d="M20 12V4c0-1.1-.9-2-2-2h-2c-1.1 0-2 .9-2 2v8l-2 2-2-2-2 2-2-2-2 2V4c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V12"/></svg>
+                            <h4 class="text-xl font-semibold text-white">Advanced Video Editing</h4>
+                        </div>
+                        <p class="text-text-light text-sm">Crafting seamless, engaging edits that tell a story—utilizing industry-standard software to bring concepts to life with precision and rhythm.</p>
+                    </div>
+                    <!-- Skill Card 2 -->
+                    <div class="p-6 bg-card-dark rounded-xl border border-accent-blue/30 shadow-xl accent-hover h-full">
+                        <div class="flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-accent-blue mr-3 lucide lucide-lightbulb"><path d="M15 14c.2-1 .9-1.8 1.8-2.3v-.1c-.4-.5-.9-1.2-1.4-2l-2-3"/><path d="M12 21c.9 0 1.7-.7 1.7-1.7V17h-3.4v2.3c0 .9.8 1.7 1.7 1.7z"/><path d="M12 17v-1.3c0-.9-.8-1.7-1.7-1.7H10V9.8c0-1.3-.9-2.3-2.3-2.3H5.8"/><path d="M9 13H5.8c-1.3 0-2.3.9-2.3 2.3V17h3.5v2.3c0 .9-.8 1.7-1.7 1.7"/></svg>
+                            <h4 class="text-xl font-semibold text-white">Content Strategy & Storytelling</h4>
+                        </div>
+                        <p class="text-text-light text-sm">Developing concepts that connect with audiences and drive measurable results. I specialize in structuring narratives that are both compelling and conversion-focused.</p>
+                    </div>
+                    <!-- Skill Card 3 -->
+                    <div class="p-6 bg-card-dark rounded-xl border border-accent-blue/30 shadow-xl accent-hover h-full">
+                        <div class="flex items-center mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-accent-blue mr-3 lucide lucide-layers"><path d="m12.83 2.19-.77.77-6.07 6.07c-.4.4-.7.88-.9 1.4-.2.52-.3 1.08-.3 1.63v.1a7 7 0 0 0 1.9 4.38L12 22l6.27-6.27A7 7 0 0 0 20 11.2v-.1c0-.55-.1-1.1-.3-1.63-.2-.52-.5-1-.9-1.4l-6.07-6.07-.77-.77z"/><path d="M12 22V12"/></svg>
+                            <h4 class="text-xl font-semibold text-white">Motion Graphics & Visual Effects</h4>
+                        </div>
+                        <p class="text-text-light text-sm">Enhancing videos with dynamic graphics, titles, and cinematic polish. Expertise in using tools like After Effects to add depth and professional flair to any project.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ########################################## -->
+        <!-- 2. MY WORKS Section (PORTFOLIO) -->
+        <!-- ########################################## -->
+        <section id="works" class="py-20 px-4 sm:px-6 lg:px-8">
+            <h3 class="text-4xl font-extrabold text-white text-center mb-16 border-b border-accent-blue/50 pb-4">MY WORKS</h3>
+
+            <!-- Primary Portfolio Filter (Editing vs Content) -->
+            <div class="flex justify-center mb-10 space-x-4">
+                <button data-category="editing" class="portfolio-category-btn px-6 py-3 text-lg font-semibold rounded-full transition duration-300 shadow-lg border border-accent-blue"
+                    style="background-color: #007bff; color: white;">
+                    VIDEO EDITING
+                </button>
+                <button data-category="content" class="portfolio-category-btn px-6 py-3 text-lg font-semibold rounded-full transition duration-300 border border-gray-600 bg-card-dark hover:bg-gray-700">
+                    CONTENT CREATION
+                </button>
+            </div>
+
+            <!-- Secondary Portfolio Filter (Video Editing Sub-sections) -->
+            <div id="editing-tabs" class="flex justify-center flex-wrap gap-3 mb-12">
+                <button data-filter="shortform" class="portfolio-filter-btn active-filter px-4 py-2 text-sm font-medium rounded-full transition duration-300 border border-accent-blue/50 text-accent-blue bg-accent-blue/10 hover:bg-accent-blue hover:text-white">Shortform (Reels)</button>
+                <button data-filter="longform" class="portfolio-filter-btn px-4 py-2 text-sm font-medium rounded-full transition duration-300 border border-gray-600 text-text-light hover:bg-card-dark">Longform Videos</button>
+                <button data-filter="animation" class="portfolio-filter-btn px-4 py-2 text-sm font-medium rounded-full transition duration-300 border border-gray-600 text-text-light hover:bg-card-dark">Animation Videos</button>
+                <button data-filter="advertisement" class="portfolio-filter-btn px-4 py-2 text-sm font-medium rounded-full transition duration-300 border border-gray-600 text-text-light hover:bg-card-dark">Advertisement Videos</button>
+                <button data-filter="ai_videos" class="portfolio-filter-btn px-4 py-2 text-sm font-medium rounded-full transition duration-300 border border-gray-600 text-text-light hover:bg-card-dark">AI Videos</button>
+            </div>
+
+            <!-- Secondary Portfolio Filter (Content Creation Sub-section - hidden by default) -->
+            <div id="content-tabs" class="hidden flex justify-center gap-3 mb-12">
+                 <h4 class="text-lg text-text-light/80 border-b border-accent-blue/50 pb-2">Projects Directed, Scripted, and Edited</h4>
+            </div>
+
+            <!-- Video Grid -->
+            <div id="portfolio-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Video thumbnails will be dynamically injected here -->
+            </div>
+        </section>
+
+        <!-- ########################################## -->
+        <!-- 3. CONTACT ME Section -->
+        <!-- ########################################## -->
+        <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 bg-card-dark/50 rounded-xl my-10 border border-accent-blue/20">
+            <h3 class="text-4xl font-extrabold text-white text-center mb-16 border-b border-accent-blue/50 pb-4">CONTACT ME</h3>
+
+            <div class="max-w-3xl mx-auto">
+                <p class="text-center text-lg text-text-light mb-10">
+                    Ready to collaborate on your next high-impact video project? Reach out below.
+                </p>
+
+                <!-- Contact Form Placeholder -->
+                <form onsubmit="event.preventDefault(); showMessage('Thank you for your message! This form is currently a placeholder.');" class="space-y-6 p-8 bg-card-dark rounded-xl shadow-2xl">
+                    <div>
+                        <input type="text" placeholder="Your Name" class="w-full p-3 rounded-lg bg-primary-dark border border-gray-700 focus:border-accent-blue focus:ring-1 focus:ring-accent-blue outline-none transition duration-200" required>
+                    </div>
+                    <div>
+                        <input type="email" placeholder="Professional Email" class="w-full p-3 rounded-lg bg-primary-dark border border-gray-700 focus:border-accent-blue focus:ring-1 focus:ring-accent-blue outline-none transition duration-200" required>
+                    </div>
+                    <div>
+                        <input type="text" placeholder="Subject" class="w-full p-3 rounded-lg bg-primary-dark border border-gray-700 focus:border-accent-blue focus:ring-1 focus:ring-accent-blue outline-none transition duration-200" required>
+                    </div>
+                    <div>
+                        <textarea placeholder="Your Message / Project Details" rows="5" class="w-full p-3 rounded-lg bg-primary-dark border border-gray-700 focus:border-accent-blue focus:ring-1 focus:ring-accent-blue outline-none transition duration-200" required></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-3 text-lg font-semibold text-white bg-accent-blue rounded-lg shadow-xl hover:bg-blue-600 accent-hover transition duration-300">
+                        SEND MESSAGE
+                    </button>
+                </form>
+
+                <!-- Direct Links -->
+                <div class="mt-12 flex justify-center space-x-8">
+                    <div class="text-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-accent-blue mx-auto mb-2 lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        <a href="mailto:suriyassj03@gmail.com" class="text-text-light hover:text-accent-blue transition duration-300">suriyassj03@gmail.com</a>
+                    </div>
+                    <div class="text-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-accent-blue mx-auto mb-2 lucide lucide-phone"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6.86-6.86A19.79 19.79 0 0 1 2 4.18 2 2 0 0 1 4.18 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        <span class="text-text-light">8838899326</span>
+                    </div>
+                </div>
+
+                <!-- Social Media Icons -->
+                <div class="mt-10 pt-6 border-t border-gray-700 flex justify-center space-x-6">
+                    <a href="https://www.linkedin.com/in/suriya-jaisankar-185b2523a/" target="_blank" class="text-text-light hover:text-accent-blue transition duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="16" x="2" y="8"/><circle cx="4" cy="4" r="2"/></svg>
+                    </a>
+                    <a href="https://www.instagram.com/iam_.suriya/" target="_blank" class="text-text-light hover:text-accent-blue transition duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12 8a4 4 0 0 1 4 3.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-6 bg-card-dark/70 border-t border-accent-blue/20">
+        <p class="text-sm text-gray-500">&copy; 2024 Suriya Jaisankar. All Rights Reserved. | Content Designed to Convert.</p>
+    </footer>
+
+    <!-- ########################################## -->
+    <!-- Video Playback Modal (Lightbox) -->
+    <!-- ########################################## -->
+    <div id="video-modal-container" class="fixed inset-0 hidden items-center justify-center p-4" onclick="closeModal(event)">
+        <div id="video-modal-content" class="relative w-full max-w-4xl rounded-lg shadow-2xl bg-primary-dark p-6 transition-all duration-300 transform scale-95 opacity-0" onclick="event.stopPropagation()">
+            <!-- Close Button -->
+            <button onclick="closeModal()" class="absolute -top-4 -right-4 bg-accent-blue text-white rounded-full p-2 hover:bg-blue-600 transition duration-300 z-50">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+            
+            <h4 id="modal-video-title" class="text-2xl font-bold text-white mb-4">Video Title</h4>
+            
+            <div id="modal-video-player" class="w-full">
+                <!-- YouTube/Vimeo iframe will be inserted here -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- Custom Message Box for form submission -->
+    <div id="message-box" class="fixed bottom-5 right-5 p-4 rounded-lg shadow-xl bg-accent-blue text-white transition-opacity duration-300 opacity-0 z-[1001]"></div>
+
+
+    <script>
+        // Data Structure for Portfolio
+        // **IMPORTANT:** Add your public image URL to the 'thumbnailUrl' property below.
+        // If 'thumbnailUrl' is null, it will automatically use the high-resolution YouTube thumbnail.
+        const VIDEO_DATA = {
+            'editing': {
+                'shortform': [
+                    { title: "Personal Branding", type: "vertical", embedId: "CK_Ek3odYOc", description: "High-impact vertical edit designed to establish professional identity and audience connection.", thumbnailUrl: null },
+                    { title: "Educational Retention Edit", type: "vertical", embedId: "jJDx-2axUCU", description: "Strategic short-form content optimized for maximum viewer retention and knowledge transfer.", thumbnailUrl: null },
+                    { title: "Motivational Retention Edit", type: "vertical", embedId: "gR3i-NgzIII", description: "Inspirational reel using sharp cuts and dynamic graphics to boost audience engagement.", thumbnailUrl: null },
+                    { title: "Educational Retention Edit 2", type: "vertical", embedId: "kmYRhfe46EY", description: "Detailed short tutorial crafted for clear learning outcomes and high completion rates.", thumbnailUrl: null },
+                    { title: "Funky Style Reel", type: "vertical", embedId: "KRY79TxOZ2w", description: "Visually distinct and playful editing style to capture attention and stand out on social feeds.", thumbnailUrl: null },
+                    { title: "Business Testimonial Edit", type: "vertical", embedId: "TlmX3JyVmSY", description: "Trust-building content featuring a client testimonial edited for credibility and emotional resonance.", thumbnailUrl: null },
+                    { title: "Sales Conversion Edit", type: "vertical", embedId: "ET5T-O8Nquo", description: "Direct, persuasive short video optimized with clear calls-to-action to drive immediate sales.", thumbnailUrl: null }
+                ],
+                'longform': [
+                    { title: "Documentary Style Project", type: "horizontal", embedId: "ZKX2G7tV5OM", description: "Comprehensive long-form narrative structure, utilizing interviews, B-roll, and cinematic grading.", thumbnailUrl: null },
+                    { title: "Explainer Style Video", type: "horizontal", embedId: "Jf2uji_szog", description: "Detailed, structured video using visual aids and clear pacing for complex information delivery.", thumbnailUrl: null },
+                    { title: "Interview Style Edit", type: "horizontal", embedId: "GujxTkMH3LM", description: "Professional multi-camera interview setup edited for seamless flow and viewer focus.", thumbnailUrl: null },
+                    { title: "Album Song Edit", type: "horizontal", embedId: "jbelFFX1DlI", description: "Visually rich music video edit focused on syncing visual emotion with audio rhythm and tone.", thumbnailUrl: null }
+                ],
+                'animation': [
+                    { title: "Brand Awareness 2D - Project 1", type: "horizontal", embedId: "FPNpLRIQ-Jw", description: "Engaging 2D motion graphics video focused on introducing and familiarizing the audience with a brand.", thumbnailUrl: null },
+                    { title: "AD Commercial (Animated)", type: "horizontal", embedId: "5BNS-a2N8vM", description: "Short, impactful animated commercial designed for concise messaging and high ad recall.", thumbnailUrl: null },
+                    { title: "Brand Awareness 2D - Project 2", type: "vertical", embedId: "dmjTVQgcWi0", description: "Animated piece reinforcing brand identity elements, colors, and visual language.", thumbnailUrl: null },
+                    { title: "Real Estate 2D Showcase", type: "vertical", embedId: "D51gAPZd3Uo", description: "Animated visual tour or promotional content for the real estate sector, highlighting key features.", thumbnailUrl: null }
+                ],
+                'advertisement': [
+                    { title: "Real Estate AD", type: "vertical", embedId: "GxvrNZmwqgU", description: "Targeted video advertisement showcasing property appeal and lifestyle benefits for high-impact viewing.", thumbnailUrl: null },
+                    { title: "Car Showroom AD", type: "vertical", embedId: "qezmi_z-7jQ", description: "Promotional video designed to drive foot traffic or online engagement for a car showroom/brand.", thumbnailUrl: null }
+                ],
+                'ai_videos': [
+                    { title: "Health Company Brand Awareness (AI Assisted)", type: "vertical", embedId: "buXlMY_GlAs", description: "Content created for a health company, leveraging AI tools for visual polish and rapid production turnaround.", thumbnailUrl: null }
+                ],
+            },
+            'content': {
+                'directed': [
+                    { title: "Personal Branding Campaign", type: "vertical", embedId: "CK_Ek3odYOc", description: "Full content ownership project defining and promoting a unique personal brand identity.", thumbnailUrl: null },
+                    { title: "Brand Awareness Initiative", type: "vertical", embedId: "FTerEc3ocqo", description: "Conceptualized and directed content aimed solely at increasing general brand recognition and visibility.", thumbnailUrl: null },
+                    { title: "Brand Motivation Narrative", type: "horizontal", embedId: "f6rlL8Ze2VY", description: "Strategic motivational content, using directorial and editorial skill to inspire and drive brand loyalty.", thumbnailUrl: null },
+                    { title: "Advertisement for Sales Campaign", type: "vertical", embedId: "rcarnUxub2w", description: "Content specifically designed as an advertisement, managed from concept to final cut to maximize sales impact.", thumbnailUrl: null },
+                    { title: "Franchise Conversion Content", type: "vertical", embedId: "YHycoL71iLo", description: "Content directed and edited to showcase the value of a franchise model, optimized for lead conversion.", thumbnailUrl: null }
+                ],
+            }
+        };
+
+        let currentPrimaryCategory = 'editing';
+        let currentSubFilter = 'shortform';
+
+        // Utility to display a temporary message (replacing alert())
+        function showMessage(msg) {
+            const messageBox = document.getElementById('message-box');
+            messageBox.textContent = msg;
+            messageBox.style.opacity = '1';
+            setTimeout(() => {
+                messageBox.style.opacity = '0';
+            }, 3000);
+        }
+
+        // --- Video Modal Functions ---
+
+        function openModal(embedId, title, type) {
+            const modalContainer = document.getElementById('video-modal-container');
+            const modalContent = document.getElementById('video-modal-content');
+            const modalPlayer = document.getElementById('modal-video-player');
+            const modalTitle = document.getElementById('modal-video-title');
+
+            // Set title
+            modalTitle.textContent = title;
+
+            // Generate iframe for YouTube
+            const iframeHtml = `
+                <iframe 
+                    width="100%" 
+                    height="100%" 
+                    src="https://www.youtube.com/embed/${embedId}?autoplay=1" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            `;
+            
+            // Set the correct wrapper for aspect ratio
+            const wrapperClass = type === 'vertical' ? 'vertical-video-wrapper' : 'video-embed-wrapper';
+            modalPlayer.innerHTML = `<div class="${wrapperClass}">${iframeHtml}</div>`;
+
+            // Display modal with animation
+            modalContainer.classList.remove('hidden');
+            modalContainer.classList.add('flex');
+            setTimeout(() => {
+                modalContent.classList.remove('scale-95', 'opacity-0');
+                modalContent.classList.add('scale-100', 'opacity-100');
+            }, 50);
+        }
+
+        function closeModal(event) {
+            if (event && event.target.id !== 'video-modal-container') return; // Only close if clicking outside
+            
+            const modalContainer = document.getElementById('video-modal-container');
+            const modalContent = document.getElementById('video-modal-content');
+            const modalPlayer = document.getElementById('modal-video-player');
+
+            // Animate close
+            modalContent.classList.remove('scale-100', 'opacity-100');
+            modalContent.classList.add('scale-95', 'opacity-0');
+
+            setTimeout(() => {
+                modalContainer.classList.add('hidden');
+                modalContainer.classList.remove('flex');
+                // Stop video playback by clearing the iframe
+                modalPlayer.innerHTML = '';
+            }, 300);
+        }
+        
+        // Custom function to handle robust thumbnail loading fallback
+        function loadFallbackThumbnail(imgElement, embedId) {
+            if (!imgElement.dataset.fallbackTried) {
+                // If the first attempt failed (could be custom URL or maxresdefault), try HQ default
+                imgElement.src = `https://img.youtube.com/vi/${embedId}/hqdefault.jpg`;
+                imgElement.dataset.fallbackTried = true;
+            } else {
+                // Final fallback: Show text placeholder if all attempts failed
+                imgElement.src = 'https://placehold.co/800x450/1E1E1E/007bff?text=Thumbnail+Unavailable';
+            }
+        }
+
+        // --- Portfolio Rendering & Filtering Functions ---
+
+        function renderPortfolioGrid() {
+            const grid = document.getElementById('portfolio-grid');
+            grid.innerHTML = ''; // Clear existing grid
+
+            const targetCategory = currentPrimaryCategory === 'editing' ? currentSubFilter : 'directed';
+            const videos = VIDEO_DATA[currentPrimaryCategory][targetCategory];
+
+            if (!videos || videos.length === 0) {
+                grid.innerHTML = `<p class="col-span-full text-center text-lg text-gray-500 py-10">No videos available in this section yet. Check back soon!</p>`;
+                return;
+            }
+
+            videos.forEach(video => {
+                // Priority 1: Custom URL if provided by the user
+                // Priority 2: YouTube MAXRESDEFAULT for highest resolution
+                const primaryThumbnailUrl = video.thumbnailUrl || `https://img.youtube.com/vi/${video.embedId}/maxresdefault.jpg`;
+                
+                // 9:16 aspect ratio for vertical videos (Shorts/Reels), 16:9 for others
+                const aspectRatioClass = video.type === 'vertical' ? 'pt-[150%] sm:pt-[177.77%]' : 'pt-[56.25%]'; 
+
+                const cardHtml = `
+                    <div class="bg-card-dark rounded-xl shadow-lg border border-gray-800 accent-hover cursor-pointer" onclick="openModal('${video.embedId}', '${video.title}', '${video.type}')">
+                        <!-- Thumbnail Wrapper -->
+                        <div class="relative rounded-t-xl overflow-hidden ${aspectRatioClass}">
+                            <!-- This image element will attempt to load the custom URL first (if provided), 
+                                 and if that fails, the onerror calls the robust fallback logic. -->
+                            <img src="${primaryThumbnailUrl}" 
+                                 onerror="loadFallbackThumbnail(this, '${video.embedId}')"
+                                 alt="${video.title} Thumbnail" 
+                                 class="absolute inset-0 w-full h-full object-cover transition duration-300 opacity-90 hover:opacity-100">
+                            
+                            <!-- Play Overlay -->
+                            <div class="absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/20 transition duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="currentColor" class="text-accent-blue opacity-80 hover:opacity-100 transition duration-300 drop-shadow-lg"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                            </div>
+                        </div>
+
+                        <!-- Details -->
+                        <div class="p-4">
+                            <h5 class="text-xl font-semibold text-white truncate">${video.title}</h5>
+                            <p class="text-sm text-gray-400 mt-1">${video.description}</p>
+                            ${currentPrimaryCategory === 'content' ? 
+                                '<p class="text-xs text-accent-blue mt-2 font-bold">Role: Concept Developer, Director, Lead Editor</p>' : ''}
+                        </div>
+                    </div>
+                `;
+                grid.insertAdjacentHTML('beforeend', cardHtml);
+            });
+            // Re-initialize lucide icons after injecting HTML
+            lucide.createIcons();
+        }
+
+        // --- Filter Handler Functions ---
+
+        function handlePrimaryCategoryChange(newCategory) {
+            currentPrimaryCategory = newCategory;
+
+            // Update button styles
+            document.querySelectorAll('.portfolio-category-btn').forEach(btn => {
+                if (btn.dataset.category === newCategory) {
+                    btn.style.backgroundColor = '#007bff';
+                    btn.style.color = 'white';
+                    btn.classList.add('border-accent-blue');
+                    btn.classList.remove('bg-card-dark', 'border-gray-600', 'hover:bg-gray-700');
+                } else {
+                    btn.style.backgroundColor = '';
+                    btn.style.color = '';
+                    btn.classList.remove('border-accent-blue');
+                    btn.classList.add('bg-card-dark', 'border-gray-600', 'hover:bg-gray-700');
+                }
+            });
+
+            // Show/Hide Secondary Filters
+            if (newCategory === 'editing') {
+                document.getElementById('editing-tabs').classList.remove('hidden');
+                document.getElementById('editing-tabs').classList.add('flex');
+                document.getElementById('content-tabs').classList.remove('flex');
+                document.getElementById('content-tabs').classList.add('hidden');
+                // Ensure the initial sub-filter is active when switching back to editing
+                handleSubFilterChange(currentSubFilter); 
+            } else {
+                document.getElementById('editing-tabs').classList.remove('flex');
+                document.getElementById('editing-tabs').classList.add('hidden');
+                document.getElementById('content-tabs').classList.remove('hidden');
+                document.getElementById('content-tabs').classList.add('flex');
+            }
+
+            // Render the grid based on the new selection
+            renderPortfolioGrid();
+        }
+
+        function handleSubFilterChange(newFilter) {
+            currentSubFilter = newFilter;
+
+            // Update button styles
+            document.querySelectorAll('.portfolio-filter-btn').forEach(btn => {
+                btn.classList.remove('active-filter', 'bg-accent-blue', 'text-white');
+                btn.classList.add('border-gray-600', 'text-text-light', 'hover:bg-card-dark', 'bg-card-dark/50');
+                
+                if (btn.dataset.filter === newFilter) {
+                    btn.classList.add('active-filter', 'bg-accent-blue', 'text-white', 'hover:bg-accent-blue');
+                    btn.classList.remove('border-gray-600', 'text-text-light', 'bg-card-dark/50');
+                }
+            });
+
+            renderPortfolioGrid();
+        }
+
+        // --- Event Listeners and Initialization ---
+        document.addEventListener('DOMContentLoaded', () => {
+            // Attach listeners for primary category change
+            document.querySelectorAll('.portfolio-category-btn').forEach(btn => {
+                btn.addEventListener('click', () => handlePrimaryCategoryChange(btn.dataset.category));
+            });
+
+            // Attach listeners for secondary filter change (only for editing)
+            document.querySelectorAll('.portfolio-filter-btn').forEach(btn => {
+                btn.addEventListener('click', () => handleSubFilterChange(btn.dataset.filter));
+            });
+
+            // Initial render: start with Video Editing -> Shortform
+            handlePrimaryCategoryChange('editing');
+            handleSubFilterChange('shortform');
+            
+            // Auto-create icons
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>
